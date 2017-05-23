@@ -2,15 +2,23 @@
   hosts: localhost
   gather_facts: false
   connection: local
-  vars:
-    
-    
+
+  vars_prompt:
+    - name: "tagid"
+      prompt: "what is tag id for Role"
+      private: no
+    - name: "state"
+      prompt: "please provide desired state(stopped|running)?"
+      private: no
+
+
+
   tasks:
     - name: Start the sandbox instances
       ec2:
        instance_tags:
-           Role: auto_shutdown
-       state: running
+           Role: "{{ tagid }}"
+
+       state: "{{ state }}"
+
        region: us-east-1
-
-
