@@ -1,0 +1,16 @@
+- name: Start sandbox instances
+  hosts: localhost
+  gather_facts: false
+  connection: local
+  vars:
+    
+    
+  tasks:
+    - name: Start the sandbox instances
+      ec2:
+       instance_tags:
+           Role: auto_shutdown
+       state: running
+       region: us-east-1
+
+
