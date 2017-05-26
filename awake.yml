@@ -1,7 +1,7 @@
 - name: Start sandbox instances
   hosts: localhost
   gather_facts: false
-  connection: local
+  connection: local #comments
 
   vars_prompt:
     - name: "tagid"
